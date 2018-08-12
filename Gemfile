@@ -10,6 +10,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'rack-cors'
 gem 'seed-fu'
 gem 'dotenv-rails'
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'rubocop'

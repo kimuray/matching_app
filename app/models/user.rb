@@ -7,4 +7,6 @@ class User < ApplicationRecord
   has_many :receive_not_likes, class_name: 'NotLike', foreign_key: :target_user_id, dependent: :destroy
   has_many :not_like_senders, through: :not_likes, source: :user
   has_many :not_like_receivers, through: :receive_not_likes, source: :target_user
+
+  enum sex: { male: 0, female: 1 }
 end
