@@ -14,6 +14,7 @@ gem 'active_model_serializers'
 
 group :development, :test do
   gem 'rubocop'
+  gem 'faker'
   gem 'rspec-rails', '~> 3.7'
   gem 'awesome_print'
   gem 'factory_bot_rails'
