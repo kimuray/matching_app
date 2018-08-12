@@ -10,10 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_12_100159) do
+ActiveRecord::Schema.define(version: 2018_08_12_112100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "matchings", force: :cascade do |t|
+    t.bigint "sender_id", null: false
+    t.bigint "receiver_id", null: false
+    t.integer "status"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["receiver_id"], name: "index_matchings_on_receiver_id"
+    t.index ["sender_id"], name: "index_matchings_on_sender_id"
+  end
+
+  create_table "not_likes", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.bigint "target_user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["target_user_id"], name: "index_not_likes_on_target_user_id"
+    t.index ["user_id"], name: "index_not_likes_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "name", null: false
@@ -27,4 +46,8 @@ ActiveRecord::Schema.define(version: 2018_08_12_100159) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "matchings", "users", column: "receiver_id"
+  add_foreign_key "matchings", "users", column: "sender_id"
+  add_foreign_key "not_likes", "users"
+  add_foreign_key "not_likes", "users", column: "target_user_id"
 end
