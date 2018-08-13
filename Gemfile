@@ -11,6 +11,7 @@ gem 'rack-cors'
 gem 'seed-fu'
 gem 'dotenv-rails'
 gem 'active_model_serializers'
+gem 'bcrypt'
 
 group :development, :test do
   gem 'rubocop'

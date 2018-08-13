@@ -4,6 +4,7 @@ def users_array(size: 10)
     users << { 
       id: i + 1,
       name: Faker::FunnyName.name,
+      password: 'password',
       age: Faker::Number.between(20, 50),
       address: Faker::Number.between(1, 47),
       sex: Faker::Number.between(0, 1),

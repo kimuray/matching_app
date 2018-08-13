@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  has_secure_password
+
   has_many :send_matchings, class_name: 'Matching', foreign_key: :sender_id, dependent: :destroy
   has_many :receive_matchings, class_name: 'Matching', foreign_key: :receiver_id, dependent: :destroy
   has_many :senders, through: :send_matchings, source: :sender 
