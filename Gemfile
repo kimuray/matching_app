@@ -12,6 +12,7 @@ gem 'seed-fu'
 gem 'dotenv-rails'
 gem 'active_model_serializers'
 gem 'bcrypt'
+gem 'knock'
 
 group :development, :test do
   gem 'rubocop'

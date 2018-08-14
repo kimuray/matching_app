@@ -3,6 +3,7 @@ def users_array(size: 10)
   size.times do |i|
     users << { 
       id: i + 1,
+      email: "test#{i + 1}@example.com",
       name: Faker::FunnyName.name,
       password: 'password',
       age: Faker::Number.between(20, 50),
